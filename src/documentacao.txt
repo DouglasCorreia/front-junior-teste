@@ -1,0 +1,32 @@
+SOLUÇÃO PARA OS POST DE BANNER/CAROUSEL
+
+Para a solução dos posts que irão compor o banner/carousel, foi utilizado o framework "Slick" para a criação do carousel, irá notar no código que somente o primeiro container contém conteúdo estático para a apresentação do primeiro banner do carousel, após isso, verá que foi criado uma Query que selecionar somente os posts que são atribuídos para a categoria Banner.
+
+<?php
+	$args = array(
+	'post-type' => 'post',
+	'category_name'=> 'banner', // Slug da categoria Banner
+	'showposts' => '4' );
+	$my_posts = get_posts( $args );
+?>
+
+SOLUÇÃO PARA OS POST QUE NÃO IRÃO COMPOR A CATEGORIA BANNER
+
+Para a solução dos posts que não serão atribuídos a categoria Banner, foi criado uma Query com um atributo chamado "category__not_in", o qual está excluindo a categoria Banner para não ser apresentada.
+
+<?php
+	$args = array(
+	'post-type' => 'post',
+	'category__not_in'  => 3, // ID da categoria "Banner"
+	'showposts' => '4' );
+	$my_posts = get_posts( $args );
+?>
+
+ÍCONES DO PROJETO
+
+Verá que a maioria dos ícones são compostos por imagens, não encontrei um framework que continha todos os ícones idênticos, para a solução do problema, cada ícone foi convertido como uma imagem.
+Para os ícones das redes sociais, foi utilizado a técnica "Sprite", o qual um único arquivo contém múltiplas imagens.
+
+MENU EM VERMELHO
+
+Para deixar o menu em vermelho (selecionado/active) quando estiver por cima de uma seção equivalente, utilizei o framework "JQuery", com isso, eu recupero a altura de cada seção e faço uma condição verificando se o campo de visão da tela está dentro da seção equivalente.

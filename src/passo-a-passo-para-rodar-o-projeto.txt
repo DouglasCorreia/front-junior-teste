@@ -1,0 +1,101 @@
+Dentro da pasta "src", contém o arquivo do tema proposto para ser instalado na plataforma WordPress.
+
+Caso por ventura, deseja adicionar as imagens de destaque dos posts, favicon, banner/carousel dos posts e a logo. Dentro da pasta "src", contém uma pasta nomeada como "imagens" contendo todas as imagens para exemplo.
+
+PASSO A PASSO PARA RODAR AS APLICAÇÕES DO TEMA
+
+CONFIGURAÇÃO DA LOGO
+
+Ao realizar a ativação do tema, não será apresentado a logo do tema. Para a apresentação do mesmo, por favor, navegue em Aparência > Personalizar > Identidade do site, verá uma opção chamada "Selecionar Logo", dentro da pasta "imagens", contém a logo para ser adicionada.
+
+CONFIGURAÇÃO DA PÁGINA INICIAL DO SITE
+
+Ao realizar a ativação do tema, adiciona uma página chamada "Home", em seguida, navegue até a página de "Configuração de Leitura" para selecionar a página "Home" como a página inicial do site.
+	- Configurações > Leitura
+
+CONFIGURAÇÃO DO MENU COM O EFEITO DE CLICK E ROLAGEM DA PÁGINA
+
+Para rodar o funcionamento do menu com o click e a rolagem da página, por favor, criar o menu com as informações a seguir:
+Obs. Todas os itens do menu devem ser adicionados como "Links Personalizados".
+
+Para o menu da página inicial do site, adicione um novo menu com as informações abaixo:
+	
+	Nome do Menu: Header Menu
+
+	URL
+		#home
+	Rótulo de navegação
+	  	Home
+
+	URL
+		#about-us
+	Rótulo de navegação
+	  	About Us
+
+	URL
+		#portfolio
+	Rótulo de navegação
+	  	Portfólio
+
+	URL
+		#case-study
+	Rótulo de navegação
+	  	Case Study
+
+	URL
+		#blog
+	Rótulo de navegação
+	  	#blog
+
+	Exibir localização: Header Menu
+
+Para o menu das páginas dos posts, adicione um novo menu com as informações abaixo:
+
+	Nome do Menu: Post Menu
+
+	URL
+		http://localhost/bino/#home
+	Rótulo de navegação
+	  	Home
+
+	URL
+		http://localhost/bino/#about-us
+	Rótulo de navegação
+	  	About Us
+
+	URL
+		http://localhost/bino/#portfolio
+	Rótulo de navegação
+	  	Portfólio
+
+	URL
+		http://localhost/bino/#case-study
+	Rótulo de navegação
+	  	Case Study
+
+	URL
+		http://localhost/bino/#blog
+	Rótulo de navegação
+	  	#blog
+
+	Exibir localização: Post Menu
+
+CONFIGURAÇÃO DOS POSTS DE BANNER/CAROUSEL
+
+Para a apresentação de um post no carousel, adicione um novo post, em seguida marque a categoria do post como "Banner", após isso, adicione uma "imagem de destaque" para o post. Se o post for publicado, a categoria estiver marcada como Banner e não houver uma "imagem de destaque", automaticamente o tema irá apresentar uma imagem com fundo cinza para ser apresentada com o banner do post.
+
+Obs. Para as imagens dos posts de banner/carousel, por favor, adicionar as imagens com a dimensões de 1920x1040, dentro das pasta "imagens", contém uma imagem de exemplo igual do template.
+
+CONFIGURAÇÃO DOS POSTS QUE NÃO SÃO RELACIONADOS AO BANNER/CAROUSEL
+
+Para a apresentação dos posts que não estejam relacionados com os posts do banner, foi criado uma Query com o atributo "category__not_in", o qual o ID da categoria "Banner" deve ser igual a 3, caso por ventura ao criar a categoria Banner e o ID não ser igual a 3, por favor, editar o arquivo "index.php" dentro do tema e alterar o ID relacionado da categoria. Se houver o caso de não adicionar uma imagem de destaque e publicar os posts, automaticamente o tema irá adicionar uma imagem de destaque para compor o post.
+
+<?php
+	$args = array(
+	'post-type' => 'post',
+	'category__not_in'  => 3, // ID da categoria "Banner"
+	'showposts' => '4' );
+	$my_posts = get_posts( $args );
+?>
+
+Obs. Para a imagens dos posts, por favor, adicionar as imagens com as dimesões de 480x480, dentro das pasta "imagens", contém algumas imagens de exemplos que são iguais do template.
